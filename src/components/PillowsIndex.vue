@@ -11,9 +11,9 @@ export default {
     <h1>All pillows</h1>
     <div v-for="pillow in pillows" v-bind:key="pillow.id">
       <h2>{{ pillow.name }}</h2>
-      <img v-bind:src="pillow.url" />
-      <p>Width: {{ pillow.width }}</p>
-      <p>Height: {{ pillow.height }}</p>
+      <img v-bind:src="pillow.image_url" />
+      <p>Description: {{ pillow.description }}</p>
+      <p>Size: {{ pillow.size }}</p>
     </div>
   </div>
 </template>
