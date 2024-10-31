@@ -45,10 +45,29 @@ export default {
       this.currentPillow = pillow;
       this.isPillowsShowVisible = true;
     },
+    handleUpdatePillow: function (id, params) {
+      console.log("handleUpdatePillow", id, params);
+      axios
+        .patch(`http://localhost:5000/pillows/${id}.json`, params)
+        .then((response) => {
+          console.log("pillows update", response);
+          this.pillows = this.pillows.map((photo) => {
+            if (photo.id === response.data.id) {
+              return response.data;
+            } else {
+              return photo;
+            }
+          });
+          this.handleClose();
+        })
+        .catch((error) => {
+          console.log("pillows update error", error.response);
+        });
+    },
     handleClose: function () {
       this.isPillowsShowVisible = false;
     }
-  },
+ },
 };
 </script>
 
@@ -57,7 +76,7 @@ export default {
     <PillowsNew v-on:createPillow="handleCreatePillow" />
     <PillowsIndex v-bind:pillows="pillows" v-on:showPillow="handleShowPillow" />
     <Modal v-bind:show="isPillowsShowVisible" v-on:close="handleClose">
-      <PillowsShow v-bind:pillow="currentPillow" />
+      <PillowsShow v-bind:pillow="currentPillow" v-on:updatePillow="handleUpdatePillow" />
     </Modal>
   </main>
 </template>
