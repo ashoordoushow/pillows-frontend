@@ -14,6 +14,7 @@ export default {
       <img v-bind:src="pillow.image_url" />
       <p>Description: {{ pillow.description }}</p>
       <p>Size: {{ pillow.size }}</p>
+      <button v-on:click="$emit('showPillow', pillow)">More info</button>
     </div>
   </div>
 </template>
