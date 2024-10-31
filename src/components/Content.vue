@@ -51,11 +51,11 @@ export default {
         .patch(`http://localhost:5000/pillows/${id}.json`, params)
         .then((response) => {
           console.log("pillows update", response);
-          this.pillows = this.pillows.map((photo) => {
-            if (photo.id === response.data.id) {
+          this.pillows = this.pillows.map((pillows) => {
+            if (pillows.id === response.data.id) {
               return response.data;
             } else {
-              return photo;
+              return pillows;
             }
           });
           this.handleClose();

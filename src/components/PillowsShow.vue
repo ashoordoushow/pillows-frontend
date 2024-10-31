@@ -43,6 +43,7 @@ export default {
         Size:
         <input v-model="editPillowParams.size" type="text" />
       </div>
+      <button type="submit">Update pillow</button>
     </form>
   </div>
 </template>
