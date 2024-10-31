@@ -2,8 +2,8 @@
 import PillowsIndex from "./PillowsIndex.vue";
 import axios from "axios";
 import PillowsNew from "./PillowsNew.vue";
-import Modal from "./Modal.vue"
-import PillowsShow from "./PillowsShow.vue"
+import Modal from "./Modal.vue";
+import PillowsShow from "./PillowsShow.vue";
 
 export default {
   components: {
@@ -37,7 +37,7 @@ export default {
           this.pillows.push(response.data);
         })
         .catch((error) => {
-          console.log("pillows create error", error.response)
+          console.log("pillows create error", error.response);
         });
     },
     handleShowPillow: function (pillow) {
@@ -66,8 +66,8 @@ export default {
     },
     handleClose: function () {
       this.isPillowsShowVisible = false;
-    }
- },
+    },
+  },
 };
 </script>
 
@@ -81,4 +81,11 @@ export default {
   </main>
 </template>
 
-<style></style>
+<style>
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+</style>
